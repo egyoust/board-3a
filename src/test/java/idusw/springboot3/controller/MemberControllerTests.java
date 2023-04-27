@@ -1,6 +1,7 @@
 package idusw.springboot3.controller;
 
 import idusw.springboot3.domain.Member;
+import idusw.springboot3.repository.MemberRepository;
 import idusw.springboot3.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MemberControllerTests {
     @Autowired
     MemberService memberService;
+
     @Test
     void readMember() { // seq를 사용해야 함
         Member member = Member.builder()

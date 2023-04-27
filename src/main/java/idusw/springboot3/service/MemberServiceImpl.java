@@ -34,12 +34,13 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member read(Member m) {
-        MemberEntity e = memberRepository.getById(m.getSeq()); // JpaRepository 구현체의 메소드
         Member result = new Member(); // DTO (Data Transfer Object) : Controller - Service or Controller - View
-        System.out.println(e);
-        result.setSeq(e.getSeq());
-        result.setEmail(e.getEmail());
-        result.setName(e.getName());
+        MemberEntity e = memberRepository.getById(m.getSeq()); // JpaRepository 구현체의 메소드
+        if(e != null){
+            result.setSeq(e.getSeq());
+            result.setEmail(e.getEmail());
+            result.setName(e.getName());
+        }
         return result;
     }
 
